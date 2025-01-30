@@ -1,6 +1,5 @@
 import './styles/jass.css';
 
-// * All necessary DOM elements selected
 const searchForm: HTMLFormElement = document.getElementById(
   'search-form'
 ) as HTMLFormElement;
@@ -28,12 +27,6 @@ const humidityEl: HTMLParagraphElement = document.getElementById(
   'humidity'
 ) as HTMLParagraphElement;
 
-/*
-
-API Calls
-
-*/
-
 const fetchWeather = async (cityName: string) => {
   const response = await fetch('/api/weather/', {
     method: 'POST',
@@ -44,9 +37,6 @@ const fetchWeather = async (cityName: string) => {
   });
 
   const weatherData = await response.json();
-
-  console.log('weatherData: ', weatherData);
-
   renderCurrentWeather(weatherData[0]);
   renderForecast(weatherData.slice(1));
 };
@@ -70,17 +60,10 @@ const deleteCityFromHistory = async (id: string) => {
   });
 };
 
-/*
-
-Render Functions
-
-*/
-
 const renderCurrentWeather = (currentWeather: any): void => {
   const { city, date, icon, iconDescription, tempF, windSpeed, humidity } =
     currentWeather;
 
-  // convert the following to typescript
   heading.textContent = `${city} (${date})`;
   weatherIcon.setAttribute(
     'src',
@@ -123,7 +106,6 @@ const renderForecastCard = (forecast: any) => {
   const { col, cardTitle, weatherIcon, tempEl, windEl, humidityEl } =
     createForecastCard();
 
-  // Add content to elements
   cardTitle.textContent = date;
   weatherIcon.setAttribute(
     'src',
@@ -150,19 +132,12 @@ const renderSearchHistory = async (searchHistory: any) => {
         '<p class="text-center">No Previous Search History</p>';
     }
 
-    // * Start at end of history array and count down to show the most recent cities at the top.
     for (let i = historyList.length - 1; i >= 0; i--) {
       const historyItem = buildHistoryListItem(historyList[i]);
       searchHistoryContainer.append(historyItem);
     }
   }
 };
-
-/*
-
-Helper Functions
-
-*/
 
 const createForecastCard = () => {
   const col = document.createElement('div');
@@ -243,11 +218,6 @@ const buildHistoryListItem = (city: any) => {
   return historyDiv;
 };
 
-/*
-
-Event Handlers
-
-*/
 
 const handleSearchFormSubmit = (event: any): void => {
   event.preventDefault();
@@ -275,12 +245,6 @@ const handleDeleteHistoryClick = (event: any) => {
   const cityID = JSON.parse(event.target.getAttribute('data-city')).id;
   deleteCityFromHistory(cityID).then(getAndRenderHistory);
 };
-
-/*
-
-Initial Render
-
-*/
 
 const getAndRenderHistory = () =>
   fetchSearchHistory().then(renderSearchHistory);
