@@ -10,6 +10,9 @@ This application can be installed very easily! Just download from the Git reposi
 
 ## Usage
 
+Please view this example video on how to use the applicaiton: 
+
+https://drive.google.com/file/d/1tc8Q4nflQMVhR1Jh4biopqt914my4OUH/view?usp=sharing
 
 ## Credits
 
