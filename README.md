@@ -16,10 +16,10 @@ https://drive.google.com/file/d/1tc8Q4nflQMVhR1Jh4biopqt914my4OUH/view?usp=shari
 
 ## Credits
 
-ChatGPT
-Stack Overflow
-TONS of google... a sad amount.
-All of my class mates that answered my questions!
+ChatGPT  
+Stack Overflow  
+TONS of google... a sad amount.  
+All of my class mates that answered my questions!  
 
 ## How to Contribute
 
