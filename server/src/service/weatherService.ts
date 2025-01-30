@@ -36,9 +36,9 @@ class Weather {
 
 class WeatherService {
 
-  private apiKey?: string;
+  private apiKey: any;
 
-  private baseURL?: string;
+  private baseURL: any;
 
   constructor() {
 
